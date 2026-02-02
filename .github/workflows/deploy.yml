@@ -41,9 +41,12 @@ jobs:
             --name ${{ vars.CONTAINER_APP }} \
             --resource-group ${{ vars.RESOURCE_GROUP }} \
             --query "properties.configuration.ingress.fqdn" -o tsv)
+
+            sleep 30
+
           for i in 1 2 3 4 5 6 7 8 9 10; do
             curl -sf "https://$FQDN/health" && exit 0
             echo "Attempt $i failed, retrying..."
-            sleep 30
+            sleep 10
           done
           echo "Health check failed" && exit 1
