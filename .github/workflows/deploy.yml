@@ -42,7 +42,7 @@ jobs:
             --resource-group ${{ vars.RESOURCE_GROUP }} \
             --query "properties.configuration.ingress.fqdn" -o tsv)
           for i in 1 2 3 4 5; do
-            curl -sf "https://$FQDN" && exit 0
+            curl -sf "https://$FQDN/health" && exit 0
             echo "Attempt $i failed, retrying..."
             sleep 10
           done
