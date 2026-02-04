@@ -1,0 +1,4 @@
+RESOURCE_GROUP=rg-hello-cicd
+LOCATION=westeurope
+CONTAINER_APP=ca-hello-cicd
+ACR_NAME=acrhellocicda4fcd0
